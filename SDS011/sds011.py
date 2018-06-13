@@ -88,7 +88,7 @@ class SDS011(object):
         ch.setLevel(logging.DEBUG)
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         ch.setFormatter(formatter)
-        self.logger.addHandler(ch)
+        self.logger.addHandler(logging.NullHandler())
 
         self.sensor_name = "SDS011"
         self.logger.info("{}: start of the sensor class constructor. The device path is \"{}\"".format(self.sensor_name, device_path))
