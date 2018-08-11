@@ -16,19 +16,22 @@ SENSOR_HUMIDITY    = 3
 SENSOR_PRESSION    = 4
 
 def main():
-    sensor_tmp = BME280(
-        t_mode=BME280_OSAMPLE_8,
-        p_mode=BME280_OSAMPLE_8,
-        h_mode=BME280_OSAMPLE_8,
-        standby=BME280_STANDBY_250,
-        filter=BME280_FILTER_off, address=0x77)
-    degrees = sensor_tmp.read_temperature()
-    pascals = sensor_tmp.read_pressure()
-    humidity = sensor_tmp.read_humidity()
+    try:
+        sensor_tmp = BME280(
+            t_mode=BME280_OSAMPLE_8,
+            p_mode=BME280_OSAMPLE_8,
+            h_mode=BME280_OSAMPLE_8,
+            standby=BME280_STANDBY_250,
+            filter=BME280_FILTER_off, address=0x77)
+        degrees = sensor_tmp.read_temperature()
+        pascals = sensor_tmp.read_pressure()
+        humidity = sensor_tmp.read_humidity()
 
-    print("log: {} {}".format(SENSOR_TEMPERATURE, degrees))
-    print("log: {} {}".format(SENSOR_PRESSION, pascals))
-    print("log: {} {}".format(SENSOR_HUMIDITY, humidity))
+        print("log: {} {}".format(SENSOR_TEMPERATURE, degrees))
+        print("log: {} {}".format(SENSOR_PRESSION, pascals))
+        print("log: {} {}".format(SENSOR_HUMIDITY, humidity))
+    except BaseException as e:
+        print("err: {}".format(e.message))
 
     try:
         sensor_pm = SDS011("/dev/ttyS1")
