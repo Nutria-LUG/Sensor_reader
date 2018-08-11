@@ -5,10 +5,8 @@
 Sensor reader for BME280 Temp sensor and SDS011 PM sensor
 """
 
+from SDS011.sds011 import SDS011, report_mode, work_state
 from Adafruit_BME280 import *
-from SDS011.sds011 import SDS011
-from SDS011.sds011 import report_mode
-from SDS011.sds011 import work_state
 
 # Sensor codes:
 SENSOR_PM10        = 0

@@ -3,7 +3,6 @@ from distutils.core import setup
 setup(
     name='SDS011',
     version='1.0',
-    packages=[''],
     url='',
     license='MIT',
     author='zoncrd',
