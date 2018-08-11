@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # -*- coding: utf-8 -*-
 """
 Sensor reader for BME280 Temp sensor and SDS011 PM sensor
